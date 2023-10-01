@@ -1,19 +1,22 @@
 <table>
   <tbody>
     <% book.book_comments.each do |book_comment| %>
-  <!--その本とそのコメントを取り出してbook_commentカラムに格納する-->
+  <!--コメント一覧を表示し-->
   <!--「.」モデル同士紐づけるアソシエーション-->
     <tr>
       <td>
         <%= link_to user_path(book_comment.user) do %>
           <%= image_tag book_comment.user.get_profile_image, size: "50x50" %><br>
           <%= book_comment.user.name %>
+          <!--各コメントにはユーザーのプロフィール画像と名前を表示します。-->
         <% end %>
       </td>
       <td><%= book_comment.comment %></td>
       <td>
         <% if book_comment.user == current_user %>
+        <!--コメントの所有者が今のユーザーなら-->
           <%= link_to "Destroy", book_book_comment_path(book, book_comment), method: :delete, class: "btn btn-sm btn-danger float-end" %>
+        <!--削除ボタン右寄せ表示-->
         <% end %>
       </td>
     </tr>

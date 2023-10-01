@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   #ルーティングをネスト(親子関係を設定)する。
 #ネストとは、あるコントローラーへのルーティングの記述の中に
 #別のコントローラへのルーティングを記述すること。
-#URLにparams[:id]を使わなくてもいいためresourceになっている。
+#いいねはURLにparams[:id]を使わなくてもいいためresourceになっている。
 #ユーザーIDと投稿IDがわかれば、どのいいねを削除するかを特定できる。
 #したがって、いいねのIDをURLに含める必要はない
-  
-  
+
+
   resources :users, only: [:index,:show,:edit,:update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
