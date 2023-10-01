@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    #[:XXX] } に直打ち禁止したいアクションを追記
+   before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
 
   def show
     @user = User.find(params[:id])
