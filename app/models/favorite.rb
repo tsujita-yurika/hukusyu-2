@@ -7,5 +7,5 @@ class Favorite < ApplicationRecord
 
   #belongs_toメソッドを定義することで,
   #userの情報とbookの情報がFavorite(現在のモデル)を経由して取得できるようになる。
-
+  validates_uniqueness_of :book_id, scope: :user_id
 end

@@ -1,5 +1,5 @@
 <!--ログインしてるユーザーがいいねしたら？(↓の説明)-->
- <% if @book.favorited_by?(current_user) %>
+ <% if book.favorited_by?(current_user) %>
    <%= link_to book_favorites_path(book), method: :delete do %>
  <!--いいねされた後もう一度押したらいいねが削除されるようにしたいのでmethodはdelete-->
       <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
