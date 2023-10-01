@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :books
   has_one_attached :profile_image
   has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
 # ユーザーにたくさんのいいねを持つことができるようにする
 # いいねはユーザーに依存してるから、ユーザーが消えたらいいねも消えるようにする
 

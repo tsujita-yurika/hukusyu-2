@@ -6,7 +6,8 @@ class FavoritesController < ApplicationController
     #favorites = その時ログインしているユーザーの空のリストを作成
     favorite.save
     #いいねを保存
-    redirect_to books_path
+    redirect_back(fallback_location: root_path)
+    #直前のページにリダイレクト
   end
 
   def destroy
@@ -14,7 +15,7 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(book_id: book.id)
     #テーブルから呼ばれたbook.idを見つけてきてdestroyする
     favorite.destroy
-    redirect_to books_path
+    redirect_back(fallback_location: root_path)
   end
 
 end
