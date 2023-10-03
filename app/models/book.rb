@@ -28,6 +28,11 @@ class Book < ApplicationRecord
       end
     end
 
+#完全一致→perfect_match
+#前方一致→forward_match
+#後方一致→backword_match
+#部分一致→partial_match
+
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
 end
