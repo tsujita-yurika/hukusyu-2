@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get "home/about"=>"homes#about"
+  get "search" => "searches#search"
+  #検索ボタンでsearchする
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resources :book_comments, only: [:create, :destroy]
@@ -24,8 +26,6 @@ Rails.application.routes.draw do
     end
     resource :relationships, only: [:create, :destroy]
   end
-
-  get "search" => "searches#search"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
