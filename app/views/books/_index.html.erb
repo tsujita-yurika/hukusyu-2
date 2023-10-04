@@ -21,7 +21,7 @@
         <!--いいね機能ajax-partial-->
 　    　<td id="favorite_buttons_<%= book.id %>">
         <%= render'favorites/favorite', book: book %></th>
-        <td>コメント数： <%= book.book_comments.count %></td>
+        <td>コメント数：<span id = "comment_count"> <%= book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
