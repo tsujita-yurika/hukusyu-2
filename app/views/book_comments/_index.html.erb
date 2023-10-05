@@ -16,12 +16,6 @@
         <% if book_comment.user == current_user %>
         <!--コメントの所有者が今のユーザーなら-->
           <%= link_to "Destroy", book_book_comment_path(book, book_comment), class: "btn btn-sm btn-danger float-end",method: :delete, remote:true, data: {"turbolinks" => false} %>
-      <% end %>
-      </div>
-    </div>
-  <% end %>
-    </div>
-        <!--削除ボタン右寄せ表示-->
         <% end %>
       </td>
     </tr>
