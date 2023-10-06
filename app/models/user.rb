@@ -18,6 +18,9 @@ class User < ApplicationRecord
   has_many :following_users, through: :followers, source: :followed
   has_many :follower_users, through: :followeds, source: :follower
 
+  has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
 #名前と自己紹介の設定
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: {maximum: 50}

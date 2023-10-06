@@ -4,6 +4,9 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   #いいねはbookに依存してるからbookが消えたらいいねも消えるようにする
+  belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
 
     def favorited_by?(user)
     #現在ログインしているユーザーによっていいねされてる？
