@@ -17,9 +17,12 @@ class User < ApplicationRecord
 # 一覧画面で使う
   has_many :following_users, through: :followers, source: :followed
   has_many :follower_users, through: :followeds, source: :follower
-
+#いいね並べ替え
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
+#DM
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
 #名前と自己紹介の設定
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
@@ -27,12 +30,15 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(user_id)
-    follower.create(followed_id: user_id)
+    followers.create(followed_id: user_id)
   end
+  # @relationship = Relationship.new
+  # @relationship.follower_id = current_user.id
+  # @relationship.create(followed_id: params[:user_id])
 
   # ユーザーのフォローを外す
   def unfollow(user_id)
-    follower.find_by(followed_id: user_id).destroy
+    followers.find_by(followed_id: user_id).destroy
   end
 
   # フォローしていればtrueを返す

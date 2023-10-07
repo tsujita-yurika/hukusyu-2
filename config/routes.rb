@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
   #検索ボタンでsearchする
 
+  #DM
+  resources :users, only: [:show,:edit,:update]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
+
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
