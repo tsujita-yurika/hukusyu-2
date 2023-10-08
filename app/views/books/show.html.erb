@@ -21,6 +21,10 @@
           <td><%= render 'favorites/favorite', book: @book %></td>
           <td>コメント数：<span id = "comment_count"> <%= @book.book_comments.count %></span></td>
           <!--コメント件数を表示-->
+
+           <!--閲覧数を表示したい部分に記述-->
+           <%= render 'books/look', book: @book %>
+
            <% if @book.user.id == current_user.id %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', book_path(@book.id), method: :delete,  class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？"%></td>

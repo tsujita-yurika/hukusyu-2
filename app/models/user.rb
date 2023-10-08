@@ -11,6 +11,9 @@ class User < ApplicationRecord
 # いいねはユーザーに依存してるから、ユーザーが消えたらいいねも消えるようにする
   has_many :book_comments, dependent: :destroy
 
+#閲覧数
+  has_many :looks, dependent: :destroy
+
 # フォローをした、されたの関係
   has_many :followers, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followeds, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy

@@ -8,6 +8,15 @@ class BooksController < ApplicationController
     @book_comment = BookComment.new
     @room = Room.new # ここで@roomを生成
     @entry = Entry.new # ここで@entryを生成
+
+        # ゲストユーザーログインを実装しているため、ゲストユーザーでない時に限定
+    if current_user.name != "guestuser"
+      # Lookの中にbook_idとユーザーのidが一致するものがないか探し、unlessによって、falseの場合のみ実行する
+     unless Look.find_by(user_id: current_user.id, book_id: @book.id)
+        # このユーザーのlooksを新たに作成し、book_idに取得してきた本のidを入力
+      current_user.looks.create(book_id: @book.id)
+     end
+    end
   end
 
   def index
