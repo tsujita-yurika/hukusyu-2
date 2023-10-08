@@ -6,6 +6,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @book_comment = BookComment.new
+    @room = Room.new # ここで@roomを生成
+    @entry = Entry.new # ここで@entryを生成
   end
 
   def index

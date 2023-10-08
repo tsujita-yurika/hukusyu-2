@@ -1,5 +1,5 @@
-class Rooms　Controller < ApplicationController
-  
+class RoomsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :reject_non_related, only: [:show]
 
@@ -30,5 +30,4 @@ class Rooms　Controller < ApplicationController
         redirect_to books_path
       end
     end
-  
 end
