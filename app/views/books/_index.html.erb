@@ -22,9 +22,10 @@
 　    　<td id="favorite_buttons_<%= book.id %>">
         <%= render'favorites/favorite', book: book %></th>
         <td>コメント数：<span id = "comment_count"> <%= book.book_comments.count %></td>
+
+     <!--閲覧数を表示したい部分に記述-->
+        <td><%= render 'books/look', book: book %></td>
       </tr>
     <% end %>
-           <!--閲覧数を表示したい部分に記述-->
-      <tr><%= render 'books/look', book: @book %></tr>
   </tbody>
 </table>
