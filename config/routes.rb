@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   #検索ボタンでsearchする
 
   #DM
+  # resources :messages, :only => [:create]
+  # resources :rooms, :only => [:create, :show, :index]
+
   resources :users, only: [:show,:edit,:update]
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
